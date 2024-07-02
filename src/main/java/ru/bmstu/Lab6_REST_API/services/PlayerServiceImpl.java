@@ -28,6 +28,11 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public PlayerDto create(PlayerDto playerDto) {
         userRepository.findByLogin(playerDto.getUserLogin()).orElseThrow(UserNotFoundException::new);
+        playerRepository.findByLogin(playerDto.getLogin()).map(player -> {
+            if (player.getUserLogin().equals(playerDto.getUserLogin()))
+                throw new RuntimeException("Player with that login already exists for current User");
+            return null;
+        });
 
         Player player = PlayerFacade.mapToPlayer(playerDto);
         playerRepository.save(player);

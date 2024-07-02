@@ -13,6 +13,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode
 @Table(name = "user_data")
 @Entity

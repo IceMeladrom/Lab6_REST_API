@@ -9,6 +9,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode
 @Table(name = "player")
 @Entity
