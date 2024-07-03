@@ -16,7 +16,7 @@ public class UserFacade {
     }
 
     public static User mapToUser(UserDto userDto) {
-        User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getUserLogin(), userDto.getEmail());
+        User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getLogin(), userDto.getEmail());
         user.setId(userDto.getId());
         return user;
     }
